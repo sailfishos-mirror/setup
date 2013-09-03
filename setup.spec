@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.8.71
+Version: 2.8.72
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -90,6 +90,9 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Tue Sep 03 2013 Ondrej Vasik <ovasik@redhat.com> 2.8.72-1
+- change the allocation of 185:185 to wildfly (former jboss-as)
+
 * Fri Jun 07 2013 Ondrej Vasik <ovasik@redhat.com> 2.8.71-1
 - fix escape codes for screen (#969429)
 - handle vte terminals in bashrc (#924275)
