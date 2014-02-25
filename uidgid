@@ -160,4 +160,4 @@ gnats	?	?	?		?	gnats, gnats-db
 listar	?	?	?		?	listar
 nfsnobody	65534	65534	/var/lib/nfs		/sbin/nologin	nfs-utils
 
-# Note: nfsnobdy is 4294967294 on 64-bit platforms (-2)
+# Note: nfsnobody is 4294967294 on 64-bit platforms (-2)

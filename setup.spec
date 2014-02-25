@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.8.73
+Version: 2.8.74
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -90,6 +90,9 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Tue Feb 25 2014 Ondrej Vasik <ovasik@redhat.com> 2.8.74-1
+- add more securetty required for mainframes (#1067347)
+
 * Fri Oct 25 2013 Ondrej Vasik <ovasik@redhat.com> 2.8.73-1
 - sync services with latest IANA
 
