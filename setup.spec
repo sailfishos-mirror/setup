@@ -92,6 +92,8 @@ end
 %changelog
 * Tue Feb 25 2014 Ondrej Vasik <ovasik@redhat.com> 2.8.74-1
 - add more securetty required for mainframes (#1067347)
+- set SHELL envvar to /bin/bash in bashrc (#1063552)
+- adjust the homedir for oprofile uid (#1068902)
 
 * Fri Oct 25 2013 Ondrej Vasik <ovasik@redhat.com> 2.8.73-1
 - sync services with latest IANA
