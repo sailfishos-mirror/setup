@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.8.76
+Version: 2.9.0
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -92,6 +92,9 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Wed Apr 23 2014 Ondrej Vasik <ovasik@redhat.com> - 2.9.0-1
+- drop /etc/securetty (#1090639)
+
 * Wed Mar 12 2014 Ondrej Vasik <ovasik@redhat.com> - 2.8.76-1
 - require system-release for saner dependency order (#1075578)
 
