@@ -83,7 +83,6 @@ end
 %config(noreplace) /etc/bashrc
 %config(noreplace) /etc/profile
 %config(noreplace) /etc/protocols
-%attr(0600,root,root) %config(noreplace,missingok) /etc/securetty
 %config(noreplace) /etc/csh.login
 %config(noreplace) /etc/csh.cshrc
 %dir /etc/profile.d
