@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.9.1
+Version: 2.9.2
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -91,6 +91,9 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Thu Aug 21 2014 Ondrej Vasik <ovasik@redhat.com> - 2.9.2-1
+- update services and protocols to latest IANA (#1132221)
+
 * Thu Jul 24 2014 Ondrej Vasik <ovasik@redhat.com> - 2.9.1-1
 - add asterisk to /etc/filesystems (to honor /proc/filesystems)
 
