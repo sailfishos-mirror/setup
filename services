@@ -10412,7 +10412,7 @@ octopus         10008/udp               # Octopus Multiplexer
 swdtp-sv        10009/tcp               # Systemwalker Desktop Patrol
 swdtp-sv        10009/udp               # Systemwalker Desktop Patrol
 rxapi           10010/tcp               # ooRexx rxapi services
-cefd-vmp        10023/udp               # Comtech EF-Data's Vipersat Management Protocol (likely typo in IANA reservation)
+cefdvmp         10023/udp               # Comtech EF-Data's Vipersat Management Protocol (likely typo in IANA reservation)
 zabbix-agent    10050/tcp               # Zabbix Agent
 zabbix-agent    10050/udp               # Zabbix Agent
 zabbix-trapper  10051/tcp               # Zabbix Trapper
