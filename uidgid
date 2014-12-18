@@ -156,7 +156,7 @@ haproxy	188	188	/var/lib/haproxy		/sbin/nologin	haproxy
 hacluster	189	-	/		/sbin/nologin	pacemaker
 haclient	-	189	-		-	pacemaker
 systemd-journal	-	190	-		-	systemd
-systemd-journal-gateway	191	191	/		/sbin/nologin	systemd
+#systemd-journal-gateway	191	191	/		/sbin/nologin	systemd  #dynamic on new systems, removed Dec2014, can be freed if necessary later
 gnats	?	?	?		?	gnats, gnats-db
 listar	?	?	?		?	listar
 nfsnobody	65534	65534	/var/lib/nfs		/sbin/nologin	nfs-utils
