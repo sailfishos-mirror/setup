@@ -91,6 +91,9 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Wed Jan 07 2015 Ondrej Vasik <ovasik@redhat.com> - 2.9.4-1
+- group tape should use 33 and not 30 (#1179585)
+
 * Thu Dec 18 2014 Ondrej Vasik <ovasik@redhat.com> - 2.9.3-1
 - remove uidgid reservation for systemd-journal-gateway (#1174304)
 
