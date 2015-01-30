@@ -121,7 +121,7 @@ cimsrvr	134	134	/		/sbin/nologin	tog-pegasus-libs
 mock	-	135	/		-	mock
 ricci	140	140	/var/lib/ricci		/sbin/nologin	ricci
 luci	141	141	/var/lib/luci		/sbin/nologin	luci
-activemq	142	142	/usr/share/activemq	/sbin/nologin	activemq
+activemq	142	142	/usr/share/activemq		/sbin/nologin	activemq
 stap-server	155	155	/var/lib/stap-server		/sbin/nologin	systemtap
 stapusr	-	156	/		-	systemtap-runtime
 stapsys	-	157	/		-	systemtap-runtime
@@ -157,6 +157,8 @@ hacluster	189	-	/		/sbin/nologin	pacemaker
 haclient	-	189	-		-	pacemaker
 systemd-journal	-	190	-		-	systemd
 #systemd-journal-gateway	191	191	/		/sbin/nologin	systemd  #dynamic on new systems, removed Dec2014, can be freed if necessary later
+systemd-network	192	192	/		/sbin/nologin	systemd
+systemd-resolve	193	193	/		/sbin/nologin	systemd
 gnats	?	?	?		?	gnats, gnats-db
 listar	?	?	?		?	listar
 nfsnobody	65534	65534	/var/lib/nfs		/sbin/nologin	nfs-utils
