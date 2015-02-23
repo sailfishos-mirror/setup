@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.9.5
+Version: 2.9.6
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -91,6 +91,9 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Mon Feb 23 2015 Ondrej Vasik <ovasik@redhat.com> - 2.9.6-1
+- bashrc: reflect new bash-4.3 behaviour to retain matching output (#1180283)
+
 * Fri Jan 30 2015 Ondrej Vasik <ovasik@redhat.com> - 2.9.5-1
 - assign uidgid for systemd-network(192:192) - FPC 481,bz#1102002
 - assign uidgid for systemd-resolve(193:193) - FPC 481,bz#1102002 

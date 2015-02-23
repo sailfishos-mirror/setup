@@ -18,14 +18,14 @@ if [ "$PS1" ]; then
       elif [ "${VTE_VERSION:-0}" -ge 3405 ]; then
           PROMPT_COMMAND="__vte_prompt_command"
       else
-          PROMPT_COMMAND='printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
+          PROMPT_COMMAND='printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"'
       fi
       ;;
     screen*)
       if [ -e /etc/sysconfig/bash-prompt-screen ]; then
           PROMPT_COMMAND=/etc/sysconfig/bash-prompt-screen
       else
-          PROMPT_COMMAND='printf "\033k%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
+          PROMPT_COMMAND='printf "\033k%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"'
       fi
       ;;
     *)
