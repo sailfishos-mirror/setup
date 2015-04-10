@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.9.6
+Version: 2.9.7
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -91,6 +91,9 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Fri Apr 10 2015 Ondrej Vasik <ovasik@redhat.com> - 2.9.7-1
+- services: update services from latest IANA lists
+
 * Mon Feb 23 2015 Ondrej Vasik <ovasik@redhat.com> - 2.9.6-1
 - bashrc: reflect new bash-4.3 behaviour to retain matching output (#1180283)
 
