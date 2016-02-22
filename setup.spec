@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.9.8
+Version: 2.10.1
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -68,6 +68,8 @@ end
 %verify(not md5 size mtime) %config(noreplace) /etc/group
 %verify(not md5 size mtime) %attr(0000,root,root) %config(noreplace,missingok) /etc/shadow
 %verify(not md5 size mtime) %attr(0000,root,root) %config(noreplace,missingok) /etc/gshadow
+%verify(not md5 size mtime) %config(noreplace) /etc/subuid
+%verify(not md5 size mtime) %config(noreplace) /etc/subgid
 %config(noreplace) /etc/services
 %verify(not md5 size mtime) %config(noreplace) /etc/exports
 %config(noreplace) /etc/aliases
@@ -91,6 +93,9 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Mon Feb 22 2016 Ondrej Vasik <ovasik@redhat.com> - 2.10.1-1
+- add basic empty subuid/subgid files for docker (#1309425)
+
 * Wed May 13 2015 Ondrej Vasik <ovasik@redhat.com> - 2.9.8-1
 - assign uidgid for ceph(167:167) - FPC 524,bz#1220846
 
