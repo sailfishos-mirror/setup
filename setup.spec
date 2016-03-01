@@ -1,7 +1,7 @@
 Summary: A set of system configuration and setup files
 Name: setup
 Version: 2.10.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Public Domain
 Group: System Environment/Base
 URL: https://fedorahosted.org/setup/
@@ -93,6 +93,9 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Tue Mar 01 2016 Ondrej Vasik <ovasik@redhat.com> - 2.10.2-1
+- make the subuid/subgid files really empty, no comments (#1309425)
+
 * Mon Feb 22 2016 Ondrej Vasik <ovasik@redhat.com> - 2.10.1-1
 - add basic empty subuid/subgid files for docker (#1309425)
 
