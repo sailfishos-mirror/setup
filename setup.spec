@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.10.2
+Version: 2.10.3
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -93,6 +93,9 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Fri Jul 08 2016 Ondrej Vasik <ovasik@redhat.com> - 2.10.3-1
+- update services and protocols from IANA
+
 * Tue Mar 01 2016 Ondrej Vasik <ovasik@redhat.com> - 2.10.2-1
 - make the subuid/subgid files really empty, no comments (#1309425)
 
