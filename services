@@ -5475,7 +5475,7 @@ realsecure      2998/tcp                # Real Secure
 realsecure      2998/udp                # Real Secure
 remoteware-un   2999/tcp                # RemoteWare Unassigned
 remoteware-un   2999/udp                # RemoteWare Unassigned
-hbci            3000/tcp                # HBCI
+hbci            3000/tcp   ceph         # HBCI or CEPH monitor
 hbci            3000/udp                # HBCI
 #remoteware-cl  3000/tcp                # RemoteWare Client
 #remoteware-cl  3000/udp                # RemoteWare Client
@@ -6067,7 +6067,6 @@ deskview        3298/tcp                # DeskView
 deskview        3298/udp                # DeskView
 pdrncs          3299/tcp                # pdrncs
 pdrncs          3299/udp                # pdrncs
-ceph            3000/tcp                # Ceph monitor
 mcs-fastmail    3302/tcp                # MCS Fastmail
 mcs-fastmail    3302/udp                # MCS Fastmail
 opsession-clnt  3303/tcp                # OP Session Client
