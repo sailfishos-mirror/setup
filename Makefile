@@ -16,7 +16,7 @@ tag-archive: check
 	@git tag -a -m "Tag as $(TAG)" -f $(TAG)
 
 create-archive:
-	@git-archive --format=tar --prefix=$(NAME)-$(VERSION)/ HEAD | bzip2 > $(NAME)-$(VERSION).tar.bz2
+	@git archive --format=tar --prefix=$(NAME)-$(VERSION)/ HEAD | bzip2 > $(NAME)-$(VERSION).tar.bz2
 	@echo "The archive is at $(NAME)-$(VERSION).tar.bz2"
 
 archive: tag-archive create-archive

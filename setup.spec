@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.10.3
+Version: 2.10.4
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -85,6 +85,7 @@ end
 %config(noreplace) /etc/bashrc
 %config(noreplace) /etc/profile
 %config(noreplace) /etc/protocols
+%config(noreplace) /etc/ethertypes
 %config(noreplace) /etc/csh.login
 %config(noreplace) /etc/csh.cshrc
 %dir /etc/profile.d
@@ -93,6 +94,9 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Fri Jul 22 2016 Ondrej Vasik <ovasik@redhat.com> - 2.10.4-1
+- own /etc/ethertypes (#1329256)
+
 * Fri Jul 08 2016 Ondrej Vasik <ovasik@redhat.com> - 2.10.3-1
 - update services and protocols from IANA
 
