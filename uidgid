@@ -122,7 +122,7 @@ mock	-	135	/		-	mock
 ricci	140	140	/var/lib/ricci		/sbin/nologin	ricci
 luci	141	141	/var/lib/luci		/sbin/nologin	luci
 activemq	142	142	/usr/share/activemq		/sbin/nologin	activemq
-cassandra	143	143	/var/lib/cassandra		/sbin/nologin
+cassandra	143	143	/var/lib/cassandra		/sbin/nologin	cassandra
 stap-server	155	155	/var/lib/stap-server		/sbin/nologin	systemtap
 stapusr	-	156	/		-	systemtap-runtime
 stapsys	-	157	/		-	systemtap-runtime
