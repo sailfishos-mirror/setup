@@ -187,8 +187,8 @@ ldap            389/tcp
 ldap            389/udp
 osb-sd          400/tcp                         # Oracle Secure Backup
 osb-sd          400/udp                         # Oracle Secure Backup
-svrloc          427/tcp                         # Server Location Protocl
-svrloc          427/udp                         # Server Location Protocl
+svrloc          427/tcp                         # Server Location
+svrloc          427/udp                         # Server Location
 mobileip-agent  434/tcp
 mobileip-agent  434/udp
 mobilip-mn      435/tcp
@@ -3722,7 +3722,7 @@ autodesk-nlm    2080/udp                # Autodesk NLM (FLEXlm)
 kme-trap-port   2081/tcp                # KME PRINTER TRAP PORT
 kme-trap-port   2081/udp                # KME PRINTER TRAP PORT
 infowave        2082/tcp                # Infowave Mobility Server
-infowave        2082/udp                # Infowave Mobiltiy Server
+infowave        2082/udp                # Infowave Mobility Server
 radsec          2083/tcp                # Secure Radius Service
 radsec          2083/udp                # Secure Radius Service
 sunclustergeo   2084/tcp                # SunCluster Geographic
