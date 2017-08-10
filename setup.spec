@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.10.5
+Version: 2.10.6
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -94,6 +94,10 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Thu Aug 10 2017 Ondrej Vasik <ovasik@redhat.com> - 2.10.6-1
+- create contrib directory, 
+  add IANA parser script by V.Skyttä (#1380333)
+
 * Wed Dec 07 2016 Ondrej Vasik <ovasik@redhat.com> - 2.10.5-1
 - assign uidgid for cassandra(143:143) - (FPC #628)
 
