@@ -7,7 +7,7 @@ Group: System Environment/Base
 URL: https://fedorahosted.org/setup/
 Source0: https://fedorahosted.org/releases/s/e/%{name}/%{name}-%{version}.tar.bz2
 BuildArch: noarch
-BuildRequires: bash tcsh perl
+BuildRequires: bash tcsh perl-interpreter
 #require system release for saner dependency order
 Requires: system-release
 Conflicts: filesystem < 3
@@ -47,6 +47,7 @@ rm -f %{buildroot}/etc/serviceslint
 rm -f %{buildroot}/etc/uidgidlint
 rm -f %{buildroot}/etc/shadowconvert.sh
 rm -f %{buildroot}/etc/setup.spec
+rm -rf %{buildroot}/etc/contrib
 
 %clean
 rm -rf %{buildroot}
@@ -63,7 +64,8 @@ end
 
 %files
 %defattr(-,root,root,-)
-%doc uidgid COPYING
+%license COPYING
+%doc uidgid
 %verify(not md5 size mtime) %config(noreplace) /etc/passwd
 %verify(not md5 size mtime) %config(noreplace) /etc/group
 %verify(not md5 size mtime) %attr(0000,root,root) %config(noreplace,missingok) /etc/shadow
@@ -100,6 +102,12 @@ end
 * Thu Aug 10 2017 Ondrej Vasik <ovasik@redhat.com> - 2.10.6-1
 - create contrib directory, 
   add IANA parser script by V.Skyttä (#1380333)
+
+* Thu Jul 27 2017 Fedora Release Engineering <releng@fedoraproject.org> - 2.10.5-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
+* Wed Feb 01 2017 Stephen Gallagher <sgallagh@redhat.com> - 2.10.5-2
+- Add missing %%license macro
 
 * Wed Dec 07 2016 Ondrej Vasik <ovasik@redhat.com> - 2.10.5-1
 - assign uidgid for cassandra(143:143) - (FPC #628)
