@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.10.7
+Version: 2.10.8
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -96,6 +96,9 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Mon Aug 28 2017 Ondrej Vasik <ovasik@redhat.com> - 2.10.8-1
+- prevent possible doublesourcing of /etc/bashrc (#1482040)
+
 * Fri Aug 18 2017 Ondrej Vasik <ovasik@redhat.com> - 2.10.7-1
 - updated IANA services based on input from K.Vogel
 
