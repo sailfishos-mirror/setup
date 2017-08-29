@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.10.8
+Version: 2.10.9
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -96,6 +96,9 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Tue Aug 29 2017 Ondrej Vasik <ovasik@redhat.com> - 2.10.9-1
+- fix homedirs and shells for several users in uidgid file (#1190321)
+
 * Mon Aug 28 2017 Ondrej Vasik <ovasik@redhat.com> - 2.10.8-1
 - prevent possible doublesourcing of /etc/bashrc (#1482040)
 

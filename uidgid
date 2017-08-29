@@ -37,7 +37,7 @@ mysql	27	27	/var/lib/mysql		/bin/bash	mysql
 nscd	28	28	/		/bin/false	nscd
 rpcuser	29	29	/var/lib/nfs		/bin/false	nfs-utils
 console	-	31	-		-	dev
-rpc	32	32	/		/bin/false	portmap
+rpc	32	32	/var/lib/rpcbind		/sbin/nologin	portmap
 amandabackup	33	(6)	/var/lib/amanda		/bin/false	amanda
 tape	-	33	-		-	setup
 netdump	34	34	/var/crash		/bin/bash	netdump-client, netdump-server
@@ -48,15 +48,15 @@ rpm	37	37	/var/lib/rpm		/bin/bash	rpm
 ntp	38	38	/etc/ntp		/sbin/nologin	ntp
 video	-	39	-		-	setup
 dip	-	40	-		-	ppp
-mailman	41	41	/var/mailman		/bin/false	mailman
-gdm	42	42	/var/gdm		/bin/bash	gdm
+mailman	41	41	/usr/lib/mailman		/sbin/nologin	mailman
+gdm	42	42	/var/lib/gdm		/sbin/nologin	gdm
 xfs	43	43	/etc/X11/fs		/bin/false	XFree86-xfs
 pppusers	-	44	-		-	linuxconf
 popusers	-	45	-		-	linuxconf
 slipusers	-	46	-		-	linuxconf
 mailnull	47	47	/var/spool/mqueue		/dev/null	sendmail
-apache	48	48	/var/www		/bin/false	apache
-wnn	49	49	/home/wnn		/bin/bash	FreeWnn
+apache	48	48	/usr/share/httpd		/bin/false	httpd
+wnn	49	49	/var/lib/wnn		/sbin/nologin	FreeWnn
 smmsp	51	51	/var/spool/mqueue		/dev/null	sendmail
 puppet	52	52	/var/lib/puppet		/sbin/nologin	puppet
 tomcat	53	53	/var/lib/tomcat		/sbin/nologin	tomcat
@@ -74,7 +74,7 @@ condor	64	64	/var/lib/condor		/sbin/nologin	condord
 nslcd	65	(55)	/		/sbin/nologin	nslcd
 wine	-	66	-		-	wine
 pegasus	66	65	/var/lib/Pegasus		/sbin/nologin	tog-pegasus
-webalizer	67	67	/var/www/html/usage		/sbin/nologin	webalizer
+webalizer	67	67	/var/www/usage		/sbin/nologin	webalizer
 haldaemon	68	68	/		/sbin/nologin	hal
 vcsa	69	69	-		/sbin/nologin	dev,MAKEDEV
 avahi	70	70	/var/run/avahi-daemon		/sbin/nologin	avahi
