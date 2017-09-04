@@ -62,6 +62,22 @@ else
     umask 022
 fi
 
+if [ -n "${BASH_VERSION-}" ] ; then
+        # Newer bash ebuilds include /etc/bashrc which will setup PS1
+        # including color.  We leave out color here because not all
+        # terminals support it.
+        if [ -f /etc/bash/bashrc ] ; then
+                # Bash login shells run only /etc/profile
+                # Bash non-login shells run only /etc/bashrc
+                # Since we want to run /etc/bashrc regardless, we source it
+                # from here.  It is unfortunate that there is no way to do
+                # this *after* the user's .bash_profile runs (without putting
+                # it in the user's dot-files), but it shouldn't make any
+                # difference. Check for double sourcing is done in /etc/bashrc
+                . /etc/bashrc
+       fi
+fi
+
 for i in /etc/profile.d/*.sh ; do
     if [ -r "$i" ]; then
         if [ "${-#*i}" != "$-" ]; then 

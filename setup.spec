@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.10.9
+Version: 2.10.10
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -96,6 +96,9 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Mon Sep 04 2017 Ondrej Vasik <ovasik@redhat.com> - 2.10.10-1
+- we need to source /etc/bashrc from /etc/profile for bash
+
 * Tue Aug 29 2017 Ondrej Vasik <ovasik@redhat.com> - 2.10.9-1
 - fix homedirs and shells for several users in uidgid file (#1190321)
 
