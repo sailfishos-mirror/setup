@@ -42,6 +42,7 @@ chmod 0644 %{buildroot}/var/log/lastlog
 touch %{buildroot}/etc/fstab
 mkdir -p %{buildroot}/etc/profile.d
 echo "#Add any required envvar overrides to this file, it is sourced from /etc/profile" >%{buildroot}/etc/profile.d/sh.local
+echo "#Add any required envvar overrides to this file, is sourced from /etc/csh.login" >%{buildroot}/etc/profile.d/csh.local
 
 # remove unpackaged files from the buildroot
 rm -f %{buildroot}/etc/Makefile
@@ -94,6 +95,7 @@ end
 %config(noreplace) /etc/csh.cshrc
 %dir /etc/profile.d
 %config(noreplace) /etc/profile.d/sh.local
+%config(noreplace) /etc/profile.d/csh.local
 %config(noreplace) %verify(not md5 size mtime) /etc/shells
 %ghost %attr(0644,root,root) %verify(not md5 size mtime) /var/log/lastlog
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
@@ -102,6 +104,7 @@ end
 * Fri Nov 17 2017 Ondrej Vasik <ovasik@redhat.com> - 2.11.1-1
 - saslauthd belongs to cyrus-sasl and cyrus-imap packages
 - provide a way how to override set envvars through sh.local file(#1344007)
+- provide a way how to override set ennvars through csh.local file
 
 * Mon Sep 04 2017 Ondrej Vasik <ovasik@redhat.com> - 2.10.10-1
 - we need to source /etc/bashrc from /etc/profile for bash
