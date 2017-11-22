@@ -1,11 +1,11 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.11.1
+Version: 2.11.2
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
-URL: https://fedorahosted.org/setup/
-Source0: https://fedorahosted.org/releases/s/e/%{name}/%{name}-%{version}.tar.bz2
+URL: https://pagure.io/setup/
+Source0: http://releases.pagure.org/%{name}/%{name}-%{version}.tar.bz2
 BuildArch: noarch
 BuildRequires: bash tcsh perl-interpreter
 #require system release for saner dependency order
@@ -101,6 +101,9 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Wed Nov 22 2017 Ondrej Vasik <ovasik@redhat.com> - 2.11.2-1
+- change the URL of the upstream (#1502427)
+
 * Fri Nov 17 2017 Ondrej Vasik <ovasik@redhat.com> - 2.11.1-1
 - saslauthd belongs to cyrus-sasl and cyrus-imap packages
 - provide a way how to override set envvars through sh.local file(#1344007)
