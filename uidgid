@@ -107,7 +107,7 @@ radiusd	95	95	/		/bin/false	freeradius
 hsqldb	96	96	/var/lib/hsqldb		/sbin/nologin	hsqldb
 dovecot	97	97	/usr/libexec/dovecot		/sbin/nologin	dovecot
 ident	98	98	/		/sbin/nologin	ident
-nobody	99	99	/		/sbin/nologin	setup
+# Note: 99 used to be the old uid for nobody, now moved to 65534, do not reuse
 users	-	100	-		-	setup
 qemu	107	107	/		/sbin/nologin	libvirt
 ovirt	108	108	/		/sbin/nologin	libvirt
@@ -163,6 +163,4 @@ systemd-network	192	192	/		/sbin/nologin	systemd
 systemd-resolve	193	193	/		/sbin/nologin	systemd
 gnats	?	?	?		?	gnats, gnats-db
 listar	?	?	?		?	listar
-nfsnobody	65534	65534	/var/lib/nfs		/sbin/nologin	nfs-utils
-
-# Note: nfsnobody is 4294967294 on 64-bit platforms (-2)
+nobody	65534	65534	/		/sbin/nologin	setup
