@@ -98,7 +98,7 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
-* Thu Feb 21 2018 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 2.11.3-1
+* Thu Feb 22 2018 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 2.11.3-1
 - Use 65534 as the nobody uid
 
 * Fri Feb 09 2018 Fedora Release Engineering <releng@fedoraproject.org> - 2.11.2-2
