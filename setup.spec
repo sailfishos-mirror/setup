@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.11.2
+Version: 2.11.3
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -52,9 +52,6 @@ rm -f %{buildroot}/etc/shadowconvert.sh
 rm -f %{buildroot}/etc/setup.spec
 rm -rf %{buildroot}/etc/contrib
 
-%clean
-rm -rf %{buildroot}
-
 #throw away useless and dangerous update stuff until rpm will be able to
 #handle it ( http://rpm.org/ticket/6 )
 %post -p <lua>
@@ -101,6 +98,12 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Thu Feb 21 2018 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 2.11.3-1
+- Use 65534 as the nobody uid
+
+* Fri Feb 09 2018 Fedora Release Engineering <releng@fedoraproject.org> - 2.11.2-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
+
 * Wed Nov 22 2017 Ondrej Vasik <ovasik@redhat.com> - 2.11.2-1
 - change the URL of the upstream (#1502427)
 
