@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.11.4
+Version: 2.11.5
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -98,6 +98,9 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Mon Apr 16 2018 Ondrej Vasik <ovasik@redhat.com> - 2.11.5-1
+- fix crdup typo in /etc/protocols (#1566469)
+
 * Mon Apr 16 2018 Ondrej Vasik <ovasik@redhat.com> - 2.11.4-1
 - don't list nologin in /etc/shells (#1378893)
 
