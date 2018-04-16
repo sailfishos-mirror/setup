@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.11.3
+Version: 2.11.4
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -98,6 +98,9 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Mon Apr 16 2018 Ondrej Vasik <ovasik@redhat.com> - 2.11.4-1
+- don't list nologin in /etc/shells (#1378893)
+
 * Thu Feb 22 2018 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 2.11.3-1
 - Use 65534 as the nobody uid
 
