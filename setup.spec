@@ -90,6 +90,7 @@ end
 %config(noreplace) /etc/ethertypes
 %config(noreplace) /etc/csh.login
 %config(noreplace) /etc/csh.cshrc
+%config(noreplace) /etc/networks
 %dir /etc/profile.d
 %config(noreplace) /etc/profile.d/sh.local
 %config(noreplace) /etc/profile.d/csh.local
