@@ -94,6 +94,7 @@ end
 %dir /etc/profile.d
 %config(noreplace) /etc/profile.d/sh.local
 %config(noreplace) /etc/profile.d/csh.local
+/etc/profile.d/lang.{sh,csh}
 %config(noreplace) %verify(not md5 size mtime) /etc/shells
 %ghost %attr(0644,root,root) %verify(not md5 size mtime) /var/log/lastlog
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
