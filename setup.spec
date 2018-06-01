@@ -31,6 +31,7 @@ make check
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/etc/profile.d
 cp -ar * %{buildroot}/etc
+mv %{buildroot}/etc/lang* %{buildroot}/etc/profile.d/
 rm -f %{buildroot}/etc/uidgid
 rm -f %{buildroot}/etc/COPYING
 mkdir -p %{buildroot}/var/log
