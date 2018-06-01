@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.11.5
+Version: 2.12.0
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -100,6 +100,10 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Fri Jun 01 2018 Ondrej Vasik <ovasik@redhat.com> - 2.12.0-1
+- move /etc/networks from initscripts to setup
+- move /etc/profile.d/lang.{sh,csh} from initscripts to setup
+
 * Mon Apr 16 2018 Ondrej Vasik <ovasik@redhat.com> - 2.11.5-1
 - fix crdup typo in /etc/protocols (#1566469)
 
