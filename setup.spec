@@ -64,7 +64,6 @@ if posix.access("/usr/bin/newaliases", "x") then
 end
 
 %files
-%defattr(-,root,root,-)
 %license COPYING
 %doc uidgid
 %verify(not md5 size mtime) %config(noreplace) /etc/passwd
