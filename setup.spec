@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.12.0
+Version: 2.12.1
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -101,6 +101,9 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Fri Jul 13 2018 Ondrej Vasik <ovasik@redhat.com> - 2.12.1-1
+- fix cut&paste error in lang.csh script (#1598268)
+
 * Fri Jun 01 2018 Ondrej Vasik <ovasik@redhat.com> - 2.12.0-1
 - move /etc/networks from initscripts to setup
 - move /etc/profile.d/lang.{sh,csh} from initscripts to setup

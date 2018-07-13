@@ -6,7 +6,7 @@ if (${?LANG}) then
 endif
 
 foreach config (/etc/locale.conf "${HOME}/.i18n")
-    if (-f "${file}") then
+    if (-f "${config}") then
         # NOTE: We are using eval & sed here to avoid invoking of any commands & functions from those files.
         eval `sed -r -e 's/^[[:blank:]]*([[:upper:]_]+)=([[:print:][:digit:]\._-]+|"[[:print:][:digit:]\._-]+")/setenv \1 \2;/;t;d' ${config}`
     endif
