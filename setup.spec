@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.12.1
+Version: 2.12.2
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -100,6 +100,9 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Mon Sep 10 2018 Ondrej Vasik <ovasik@redhat.com> - 2.12.2-1
+- fix lang.csh script so it doesn't break tcsh -e scripts (#1620004)
+ 
 * Fri Jul 13 2018 Ondrej Vasik <ovasik@redhat.com> - 2.12.1-1
 - fix cut&paste error in lang.csh script (#1598268)
 
