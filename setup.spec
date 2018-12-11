@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.12.3
+Version: 2.12.4
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -30,6 +30,7 @@ make check
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/etc/profile.d
+mkdir -p %{buildroot}/etc/motd.d
 cp -ar * %{buildroot}/etc
 mv %{buildroot}/etc/lang* %{buildroot}/etc/profile.d/
 rm -f %{buildroot}/etc/uidgid
@@ -82,6 +83,7 @@ end
 %config(noreplace) /etc/hosts.allow
 %config(noreplace) /etc/hosts.deny
 %verify(not md5 size mtime) %config(noreplace) /etc/motd
+%dir /etc/motd.d
 %config(noreplace) /etc/printcap
 %verify(not md5 size mtime) %config(noreplace) /etc/inputrc
 %config(noreplace) /etc/bashrc
@@ -100,6 +102,9 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Mon Dec 10 2018 Robert Fairley <rfairley@redhat.com> - 2.12.4-1
+- own /etc/motd.d 
+
 * Fri Oct 26 2018 Ondrej Vasik <ovasik@redhat.com> - 2.12.3-1
 - inputrc - replace quoted-insert with overwrite-mode 
   for the "Insert" key
