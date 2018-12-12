@@ -25,10 +25,10 @@ pathmunge () {
 if [ -x /usr/bin/id ]; then
     if [ -z "$EUID" ]; then
         # ksh workaround
-        EUID=`id -u`
-        UID=`id -ru`
+        EUID=`/usr/bin/id -u`
+        UID=`/usr/bin/id -ru`
     fi
-    USER="`id -un`"
+    USER="`/usr/bin/id -un`"
     LOGNAME=$USER
     MAIL="/var/spool/mail/$USER"
 fi

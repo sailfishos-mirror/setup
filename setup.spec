@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.12.4
+Version: 2.12.5
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -102,6 +102,9 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Wed Dec 12 2018 Ondrej Vasik <ovasik@redhat.com> - 2.12.5-1
+- use full path for non-builtins in profile and lang.sh (#1648589)
+
 * Mon Dec 10 2018 Robert Fairley <rfairley@redhat.com> - 2.12.4-1
 - own /etc/motd.d 
 

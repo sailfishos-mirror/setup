@@ -6,9 +6,14 @@ if [ -n "${LANG}" ]; then
 fi
 
 for config in /etc/locale.conf "${HOME}/.i18n"; do
-    # NOTE: We are using eval & sed here to avoid invoking of any commands & functions from those files.
     if [ -f "${config}" ]; then
-        eval $(sed -r -e 's/^[[:blank:]]*([[:upper:]_]+)=([[:print:][:digit:]\._-]+|"[[:print:][:digit:]\._-]+")/export \1=\2/;t;d' ${config})
+        # NOTE: We are using eval & sed here to avoid invoking of any commands & functions from those files.
+        if [ -x /usr/bin/sed ]; then
+            eval $(/usr/bin/sed -r -e 's/^[[:blank:]]*([[:upper:]_]+)=([[:print:][:digit:]\._-]+|"[[:print:][:digit:]\._-]+")/export \1=\2/;t;d' ${config})\
+        else
+            #but if we don't have sed, let's go old way and source it
+            [ -f "${config}" ] && . "${config}"
+        fi
     fi
 done
 
