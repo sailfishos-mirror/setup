@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.12.5
+Version: 2.12.6
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -45,6 +45,10 @@ touch %{buildroot}/etc/fstab
 mkdir -p %{buildroot}/etc/profile.d
 echo "#Add any required envvar overrides to this file, it is sourced from /etc/profile" >%{buildroot}/etc/profile.d/sh.local
 echo "#Add any required envvar overrides to this file, is sourced from /etc/csh.login" >%{buildroot}/etc/profile.d/csh.local
+mkdir -p %{buildroot}/run/motd.d
+touch %{buildroot}/run/motd
+mkdir -p %{buildroot}/usr/lib/motd.d
+touch %{buildroot}/usr/lib/motd
 
 # remove unpackaged files from the buildroot
 rm -f %{buildroot}/etc/Makefile
@@ -84,6 +88,10 @@ end
 %config(noreplace) /etc/hosts.deny
 %verify(not md5 size mtime) %config(noreplace) /etc/motd
 %dir /etc/motd.d
+%verify(not md5 size mtime) %config(noreplace) /run/motd
+%dir /run/motd.d
+%verify(not md5 size mtime) %config(noreplace) /usr/lib/motd
+%dir /usr/lib/motd.d
 %config(noreplace) /etc/printcap
 %verify(not md5 size mtime) %config(noreplace) /etc/inputrc
 %config(noreplace) /etc/bashrc
@@ -102,6 +110,9 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
 %changelog
+* Thu Dec 13 2018 Robert Fairley <rfairley@redhat.com> - 2.12.6-1
+- add ownership of /run/{motd,motd.d} and /usr/lib/{motd,motd.d}
+
 * Wed Dec 12 2018 Ondrej Vasik <ovasik@redhat.com> - 2.12.5-1
 - use full path for non-builtins in profile and lang.sh (#1648589)
 
