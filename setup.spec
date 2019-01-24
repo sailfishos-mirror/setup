@@ -1,13 +1,14 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.12.6
+Version: 2.12.7
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
 URL: https://pagure.io/setup/
 Source0: http://releases.pagure.org/%{name}/%{name}-%{version}.tar.bz2
 BuildArch: noarch
-BuildRequires: bash tcsh perl-interpreter
+#systemd: required to use _tmpfilesdir macro
+BuildRequires: bash tcsh perl-interpreter systemd
 #require system release for saner dependency order
 Requires: system-release
 Conflicts: filesystem < 3
@@ -49,6 +50,11 @@ mkdir -p %{buildroot}/run/motd.d
 touch %{buildroot}/run/motd
 mkdir -p %{buildroot}/usr/lib/motd.d
 touch %{buildroot}/usr/lib/motd
+#tmpfiles needed for files in /run
+mkdir -p %{buildroot}%{_tmpfilesdir}
+echo "f /run/motd 0644 root root -" >%{buildroot}%{_tmpfilesdir}/%{name}.conf
+echo "d /run/motd.d 0755 root root -" >>%{buildroot}%{_tmpfilesdir}/%{name}.conf
+chmod 0644 %{buildroot}%{_tmpfilesdir}/%{name}.conf
 
 # remove unpackaged files from the buildroot
 rm -f %{buildroot}/etc/Makefile
@@ -108,8 +114,12 @@ end
 %config(noreplace) %verify(not md5 size mtime) /etc/shells
 %ghost %attr(0644,root,root) %verify(not md5 size mtime) /var/log/lastlog
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
+%{_tmpfilesdir}/%{name}.conf
 
 %changelog
+* Wed Jan 23 2019 Robert Fairley <rfairley@redhat.com> - 2.12.7-1
+- add setup.conf tmpfile to create /run/{motd,motd.d} on boot
+
 * Thu Dec 13 2018 Robert Fairley <rfairley@redhat.com> - 2.12.6-1
 - add ownership of /run/{motd,motd.d} and /usr/lib/{motd,motd.d}
 
