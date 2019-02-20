@@ -120,8 +120,11 @@ end
   in default Fedora)
 - require systemd-rpm-macros instead of systemd
 
-* Wed Jan 23 2019 Robert Fairley <rfairley@redhat.com> - 2.12.7-1
+* Sat Feb 02 2019 Robert Fairley <rfairley@redhat.com> - 2.12.7-1
 - add setup.conf tmpfile to create /run/{motd,motd.d} on boot
+
+* Sat Feb 02 2019 Fedora Release Engineering <releng@fedoraproject.org> - 2.12.6-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
 
 * Thu Dec 13 2018 Robert Fairley <rfairley@redhat.com> - 2.12.6-1
 - add ownership of /run/{motd,motd.d} and /usr/lib/{motd,motd.d}
