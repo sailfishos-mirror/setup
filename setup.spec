@@ -1,14 +1,14 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.12.7
+Version: 2.13.1
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
 URL: https://pagure.io/setup/
 Source0: http://releases.pagure.org/%{name}/%{name}-%{version}.tar.bz2
 BuildArch: noarch
-#systemd: required to use _tmpfilesdir macro
-BuildRequires: bash tcsh perl-interpreter systemd
+#systemd-rpm-macros: required to use _tmpfilesdir macro
+BuildRequires: bash tcsh perl-interpreter systemd-rpm-macros
 #require system release for saner dependency order
 Requires: system-release
 Conflicts: filesystem < 3
@@ -90,8 +90,6 @@ end
 %config(noreplace) /etc/filesystems
 %config(noreplace) /etc/host.conf
 %verify(not md5 size mtime) %config(noreplace) /etc/hosts
-%config(noreplace) /etc/hosts.allow
-%config(noreplace) /etc/hosts.deny
 %verify(not md5 size mtime) %config(noreplace) /etc/motd
 %dir /etc/motd.d
 %verify(not md5 size mtime) %config(noreplace) /run/motd
@@ -117,6 +115,11 @@ end
 %{_tmpfilesdir}/%{name}.conf
 
 %changelog
+* Wed Feb 20 2019 Ondrej Vasik <ovasik@redhat.com> - 2.13.1-1
+- do not ship /etc/hosts.allow and /etc/hosts.deny (no need for them
+  in default Fedora)
+- require systemd-rpm-macros instead of systemd
+
 * Wed Jan 23 2019 Robert Fairley <rfairley@redhat.com> - 2.12.7-1
 - add setup.conf tmpfile to create /run/{motd,motd.d} on boot
 
