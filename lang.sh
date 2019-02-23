@@ -1,7 +1,30 @@
 # /etc/profile.d/lang.sh - exports environment variables, and provides fallback
 #                          for CJK languages that can't be displayed in console.
+#                          Resets the locale if unavailable.
 
-LANG_backup="${LANG}"
+unset LANG_backup
+
+# If unavailable, reset to the default. Do this before reading in any
+# explicit user configuration. We simply check if locale emits any
+# warnings, and assume that the settings are invalid if it does.
+if [ -n "$(locale 2>&1 1>/dev/null)" ]; then
+    [ -z "$LANG" ] || LANG=C.UTF-8
+    unset LC_ALL
+    LC_CTYPE="C.UTF-8"
+    LC_NUMERIC="C.UTF-8"
+    LC_TIME="C.UTF-8"
+    LC_COLLATE="C.UTF-8"
+    LC_MONETARY="C.UTF-8"
+    LC_MESSAGES="C.UTF-8"
+    LC_PAPER="C.UTF-8"
+    LC_NAME="C.UTF-8"
+    LC_ADDRESS="C.UTF-8"
+    LC_TELEPHONE="C.UTF-8"
+    LC_MEASUREMENT="C.UTF-8"
+    LC_IDENTIFICATION="C.UTF-8"
+else
+    LANG_backup="${LANG}"
+fi
 
 for config in /etc/locale.conf "${HOME}/.i18n"; do
     if [ -f "${config}" ]; then
