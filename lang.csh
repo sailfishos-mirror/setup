@@ -1,9 +1,7 @@
 # /etc/profile.d/lang.csh - exports environment variables, and provides fallback
 #                          for CJK languages that can't be displayed in console.
 
-if (${?LANG}) then
-    set LANG_backup=${LANG}
-endif
+set LANG_backup=${?LANG}
 
 foreach config (/etc/locale.conf "${HOME}/.i18n")
     if (-f "${config}") then
@@ -24,7 +22,7 @@ unset LANG_backup config
 # If it is set, then we we expect it is user's explicit override (most likely from ~/.i18n file).
 # See 'man 7 locale' for more info about LC_ALL.
 if (${?LC_ALL}) then
-    if (${LC_ALL} != ${LANG}) then
+    if (${LC_ALL} != ${?LANG} && ${?LANG}) then
         setenv LC_ALL
     else
         unsetenv LC_ALL
