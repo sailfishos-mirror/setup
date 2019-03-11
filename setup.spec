@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.13.1
+Version: 2.13.2
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -115,6 +115,9 @@ end
 %{_tmpfilesdir}/%{name}.conf
 
 %changelog
+* Sat Feb 23 2019 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 2.13.2-1
+- reset inherited locale settings to C.UTF-8 if invalid (PR#18)
+
 * Wed Feb 20 2019 Ondrej Vasik <ovasik@redhat.com> - 2.13.1-1
 - do not ship /etc/hosts.allow and /etc/hosts.deny (no need for them
   in default Fedora)
