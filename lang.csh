@@ -37,7 +37,7 @@ foreach config (/etc/locale.conf "${HOME}/.i18n")
 end
 
 if (${?LANG_backup}) then
-    set LANG="${LANG_backup}"
+    setenv LANG "${LANG_backup}"
 endif
 
 unset LANG_backup config locale_error
