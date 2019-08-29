@@ -26,7 +26,7 @@ if ("${locale_error}" != "") then
     setenv LC_MEASUREMENT C.UTF-8
     setenv LC_IDENTIFICATION C.UTF-8
 else
-    set LANG_backup=${?LANG}
+    set LANG_backup=${LANG}
 endif
 
 foreach config (/etc/locale.conf "${HOME}/.i18n")
@@ -37,7 +37,7 @@ foreach config (/etc/locale.conf "${HOME}/.i18n")
 end
 
 if (${?LANG_backup}) then
-    set LANG="${LANG_backup}"
+    setenv LANG "${LANG_backup}"
 endif
 
 unset LANG_backup config locale_error
