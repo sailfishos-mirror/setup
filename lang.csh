@@ -58,45 +58,46 @@ endif
 # The ${LANG} manipulation is necessary only in virtual terminal (a.k.a. console - /dev/tty*):
 set in_console=`tty | grep -vc -e '/dev/tty'`
 
-if (${?LANG} && ${?TERM} == 'linux' && in_console == 0) then
-    set utf8_used=`echo ${LANG} | grep --quiet -E -i -e '^.+\.utf-?8$'; echo $?`
+if (${?LANG} && ${?TERM}) then
+    if (${TERM} == 'linux' && $in_console == 0) then
+        set utf8_used=`echo ${LANG} | grep --quiet -E -i -e '^.+\.utf-?8$'; echo $?`
 
-    if (${utf8_used} == 0) then
-        switch (${LANG})
-            case en_IN*:
-                breaksw
+        if (${utf8_used} == 0) then
+            switch (${LANG})
+                case en_IN*:
+                    breaksw
+                case ja*:
+                case ko*:
+                case si*:
+                case zh*:
+                case ar*:
+                case fa*:
+                case he*:
+                case *_IN*:
+                    setenv LANG en_US.UTF-8
+                    breaksw
+            endsw
+        else
+            switch (${LANG})
+                case en_IN*:
+                    breaksw
+                case ja*:
+                case ko*:
+                case si*:
+                case zh*:
+                case ar*:
+                case fa*:
+                case he*:
+                case *_IN*:
+                    setenv LANG en_US
+                    breaksw
+            endsw
+        endif
 
-            case ja*:
-            case ko*:
-            case si*:
-            case zh*:
-            case ar*:
-            case fa*:
-            case he*:
-            case *_IN*:
-                setenv LANG en_US.UTF-8
-                breaksw
-        endsw
-    else
-        switch (${LANG})
-            case en_IN*:
-                breaksw
-            case ja*:
-            case ko*:
-            case si*:
-            case zh*:
-            m case ar*:
-            case fa*:
-            case he*:
-            case *_IN*:
-                setenv LANG en_US
-                breaksw
-        endsw
+        # NOTE: We are not exporting the ${LANG} here again on purpose.
+        #       If user starts GUI session from console manually, then
+        #       the previously set LANG should be okay to use.
     endif
-
-    # NOTE: We are not exporting the ${LANG} here again on purpose.
-    #       If user starts GUI session from console manually, then
-    #       the previously set LANG should be okay to use.
 endif
 
 unset in_console utf8_used
