@@ -66,7 +66,7 @@ set in_console=`tty | grep -vc -e '/dev/tty'`
 
 if (${?LANG} && ${?TERM}) then
     if (${TERM} == 'linux' && $in_console == 0) then
-        set utf8_used=`echo ${LANG} | grep --quiet -E -i -e '^.+\.utf-?8$'; echo $?`
+        set utf8_used=`echo ${LANG} | grep -vc -E -i -e '^.+\.utf-?8$'`
 
         if (${utf8_used} == 0) then
             switch (${LANG})
