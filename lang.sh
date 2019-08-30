@@ -7,7 +7,7 @@ unset LANG_backup
 # If unavailable, reset to the default. Do this before reading in any
 # explicit user configuration. We simply check if locale emits any
 # warnings, and assume that the settings are invalid if it does.
-if [ -n "$(locale 2>&1 1>/dev/null)" ]; then
+if [ -n "$(/usr/bin/locale 2>&1 1>/dev/null)" ]; then
     [ -z "$LANG" ] || LANG=C.UTF-8
     unset LC_ALL
     LC_CTYPE="C.UTF-8"
@@ -58,8 +58,8 @@ if [ -n "${LC_ALL}" ]; then
 fi
 
 # The ${LANG} manipulation is necessary only in virtual terminal (a.k.a. console - /dev/tty*):
-if [ -n "${LANG}" ] && [ "${TERM}" = 'linux' ] && tty | grep --quiet -e '/dev/tty'; then
-    if grep --quiet -E -i -e '^.+\.utf-?8$' <<< "${LANG}"; then
+if [ -n "${LANG}" ] && [ "${TERM}" = 'linux' ] && /usr/bin/tty | /usr/bin/grep --quiet -e '/dev/tty'; then
+    if /usr/bin/grep --quiet -E -i -e '^.+\.utf-?8$' <<< "${LANG}"; then
         case ${LANG} in
             ja*)    LANG=en_US.UTF-8 ;;
             ko*)    LANG=en_US.UTF-8 ;;

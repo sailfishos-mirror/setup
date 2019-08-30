@@ -7,7 +7,7 @@ unset LANG_backup
 # If unavailable, reset to the default. Do this before reading in any
 # explicit user configuration. We simply check if locale emits any
 # warnings, and assume that the settings are invalid if it does.
-set locale_error=`(locale >/dev/null) |& cat`
+set locale_error=`(/usr/bin/locale >/dev/null) |& cat`
 if ("${locale_error}" != "") then
     if (${?LANG}) then
         setenv LANG C.UTF-8
@@ -34,7 +34,7 @@ endif
 foreach config (/etc/locale.conf "${HOME}/.i18n")
     if (-f "${config}") then
         # NOTE: We are using eval & sed here to avoid invoking of any commands & functions from those files.
-        eval `sed -r -e 's/^[[:blank:]]*([[:upper:]_]+)=([[:print:][:digit:]\._-]+|"[[:print:][:digit:]\._-]+")/setenv \1 \2;/;t;d' ${config}`
+        eval `/usr/bin/sed -r -e 's/^[[:blank:]]*([[:upper:]_]+)=([[:print:][:digit:]\._-]+|"[[:print:][:digit:]\._-]+")/setenv \1 \2;/;t;d' ${config}`
     endif
 end
 
@@ -62,11 +62,11 @@ if (${?LC_ALL}) then
 endif
 
 # The ${LANG} manipulation is necessary only in virtual terminal (a.k.a. console - /dev/tty*):
-set in_console=`tty | grep -vc -e '/dev/tty'`
+set in_console=`/usr/bin/tty | /usr/bin/grep -vc -e '/dev/tty'`
 
 if (${?LANG} && ${?TERM}) then
     if (${TERM} == 'linux' && $in_console == 0) then
-        set utf8_used=`echo ${LANG} | grep -vc -E -i -e '^.+\.utf-?8$'`
+        set utf8_used=`echo ${LANG} | /usr/bin/grep -vc -E -i -e '^.+\.utf-?8$'`
 
         if (${utf8_used} == 0) then
             switch (${LANG})
