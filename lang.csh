@@ -26,7 +26,9 @@ if ("${locale_error}" != "") then
     setenv LC_MEASUREMENT C.UTF-8
     setenv LC_IDENTIFICATION C.UTF-8
 else
-    set LANG_backup=${LANG}
+    if (${?LANG}) then
+        set LANG_backup=${LANG}
+    endif
 endif
 
 foreach config (/etc/locale.conf "${HOME}/.i18n")
@@ -45,11 +47,15 @@ unset LANG_backup config locale_error
 # ----------------------------------------------
 
 # The LC_ALL is not supposed to be set in /etc/locale.conf according to 'man 5 locale.conf'.
-# If it is set, then we we expect it is user's explicit override (most likely from ~/.i18n file).
+# If it is set, then we expect it is user's explicit override (most likely from ~/.i18n file).
 # See 'man 7 locale' for more info about LC_ALL.
 if (${?LC_ALL}) then
-    if (${LC_ALL} != ${?LANG} && ${?LANG}) then
-        setenv LC_ALL
+    if (${?LANG}) then
+        if (${LC_ALL} != ${LANG}) then
+            setenv LC_ALL
+        else
+            unsetenv LC_ALL
+        endif
     else
         unsetenv LC_ALL
     endif
