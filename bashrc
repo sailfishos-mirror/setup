@@ -71,7 +71,7 @@ if [ -z "$BASHRCSOURCED" ]; then
     # Current threshold for system reserved uid/gids is 200
     # You could check uidgid reservation validity in
     # /usr/share/doc/setup-*/uidgid file
-    if [ $UID -gt 199 ] && [ "`id -gn`" = "`id -un`" ]; then
+    if [ $UID -gt 199 ] && [ "`/usr/bin/id -gn`" = "`/usr/bin/id -un`" ]; then
        umask 002
     else
        umask 022
