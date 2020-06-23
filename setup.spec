@@ -1,7 +1,7 @@
 Summary: A set of system configuration and setup files
 Name: setup
 Version: 2.13.7
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: Public Domain
 Group: System Environment/Base
 URL: https://pagure.io/setup/
@@ -115,6 +115,9 @@ end
 %{_tmpfilesdir}/%{name}.conf
 
 %changelog
+* Tue Jun 23 2020 Pavel Zhukov <pavel@pzhukov-pc.home.redhat.com> - 2.13.7-3
+- Do not use deprecated hostname binary (#1745245)
+
 * Tue Jun 23 2020 Pavel Zhukov <pavel@pzhukov-pc.home.redhat.com> - 2.13.7-2
 - add nrpe tcp port 5666 to /etc/services (#1730396))
 
