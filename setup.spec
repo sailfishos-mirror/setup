@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.13.2
+Version: 2.13.7
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -115,6 +115,9 @@ end
 %{_tmpfilesdir}/%{name}.conf
 
 %changelog
+* Tue Jun 23 2020 Pavel Zhukov <pavel@pzhukov-pc.home.redhat.com> - 2.13.7-1
+- Do not set umask in setup (#1722387)
+
 * Tue Apr 09 2019 Ondrej Vasik <ovasik@redhat.com> - 2.13.3-1
 - fix typo in lang.sh (#1697311)
 
