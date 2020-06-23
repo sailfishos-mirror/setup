@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.13.6
+Version: 2.13.7
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -115,6 +115,9 @@ end
 %{_tmpfilesdir}/%{name}.conf
 
 %changelog
+* Tue Jun 23 2020 Pavel Zhukov <pzhukov@redhat.com> - 2.13.7-1
+- Bump release to fix git tags 
+
 * Tue Jun 23 2020 Pavel Zhukov <pzhukov@redhat.com> - 2.13.6-1
 - Do not use deprecated hostname binary (#1745245)
 
