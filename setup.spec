@@ -1,7 +1,7 @@
 Summary: A set of system configuration and setup files
 Name: setup
 Version: 2.13.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Public Domain
 Group: System Environment/Base
 URL: https://pagure.io/setup/
@@ -115,6 +115,9 @@ end
 %{_tmpfilesdir}/%{name}.conf
 
 %changelog
+* Tue Jun 23 2020 Pavel Zhukov <pavel@pzhukov-pc.home.redhat.com> - 2.13.7-2
+- add nrpe tcp port 5666 to /etc/services (#1730396))
+
 * Tue Jun 23 2020 Pavel Zhukov <pavel@pzhukov-pc.home.redhat.com> - 2.13.7-1
 - Do not set umask in setup (#1722387)
 
