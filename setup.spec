@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.13.7
+Version: 2.13.8
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -115,6 +115,9 @@ end
 %{_tmpfilesdir}/%{name}.conf
 
 %changelog
+* Mon Nov 30 2020 Pavel Zhukov <pzhukov@redhat.com> - 2.13.8-1
+- Do not import bashrc for posix shell
+
 * Tue Jun 23 2020 Pavel Zhukov <pzhukov@redhat.com> - 2.13.7-1
 - Bump release to fix git tags 
 
