@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.13.8
+Version: 2.13.9
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -115,6 +115,9 @@ end
 %{_tmpfilesdir}/%{name}.conf
 
 %changelog
+* Tue Jan 12 2021 Debarshi Ray <rishi@fedoraproject.org> - 2.13.9-1
+- Don't set up VTE-specific PROMPT_COMMAND in bashrc
+
 * Mon Nov 30 2020 Pavel Zhukov <pzhukov@redhat.com> - 2.13.8-1
 - Do not import bashrc for posix shell
 
