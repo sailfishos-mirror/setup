@@ -150,7 +150,7 @@ myproxy	178	178	/var/lib/myproxy		/sbin/nologin	myproxy-server
 sanlock	179	179	/var/run/sanlock		/sbin/nologin	sanlock
 aeolus	180	180	/var/aeolus		/sbin/nologin	aeolus-configure
 wallaby	181	181	/var/lib/wallaby		/sbin/nologin	wallaby
-katello	182	182	/usr/share/katello		/sbin/nologin	katello-common
+#katello	182	182	/usr/share/katello		/sbin/nologin	katello-common  #not used anymore, removed Jun2021, can be freed if necessary later
 elasticsearch	183	183	/usr/share/java/elasticsearch		/sbin/nologin	elasticsearch
 mongodb	184	184	/var/lib/mongodb		/sbin/nologin	mongodb
 wildfly	185	185	/usr/share/wildfly		/sbin/nologin	wildfly	#was jboss-as
