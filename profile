@@ -42,7 +42,10 @@ else
     pathmunge /usr/sbin after
 fi
 
-HOSTNAME=`/usr/bin/hostnamectl --transient  2>/dev/null`
+HOSTNAME=$(/usr/bin/hostnamectl --transient 2>/dev/null) || \
+HOSTNAME=$(/usr/bin/hostname 2>/dev/null) || \
+HOSTNAME=$(/usr/bin/uname -n)
+
 HISTSIZE=1000
 if [ "$HISTCONTROL" = "ignorespace" ] ; then
     export HISTCONTROL=ignoreboth
