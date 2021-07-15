@@ -477,7 +477,11 @@ cvsup           5999/udp        CVSup           # CVSup file transfer/John Polst
 x11             6000/tcp        X               # the X Window System
 heliosd         6440/tcp                        # heliosd daemon
 checkmk-agent   6556/tcp                        # Checkmk Monitoring Agent
-ircu            6665-6669/tcp                   # IRCU
+ircu            6665/tcp                   	# IRCU
+ircu            6666/tcp                   	# IRCU
+ircu            6667/tcp                   	# IRCU
+ircu            6668/tcp                   	# IRCU
+ircu            6669/tcp                   	# IRCU
 babel-dtls      6699/udp                        # Babel Routing Protocol over DTLS
 split-ping      6924/tcp                        # Ping with RX/TX latency/loss split
 split-ping      6924/udp                        # Ping with RX/TX latency/loss split
