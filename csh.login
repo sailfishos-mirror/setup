@@ -25,7 +25,7 @@ else
 	end
 endif
 
-setenv HOSTNAME `/usr/bin/hostnamectl --transient`
+setenv HOSTNAME `/usr/bin/hostname`
 set history=1000
 
 if ( -d /etc/profile.d ) then
