@@ -37,7 +37,6 @@ if [ -z "$BASHRCSOURCED" ]; then
     fi
     # Turn on parallel history
     shopt -s histappend
-    history -a
     # Turn on checkwinsize
     shopt -s checkwinsize
     [ "$PS1" = "\\s-\\v\\\$ " ] && PS1="[\u@\h \W]\\$ "
