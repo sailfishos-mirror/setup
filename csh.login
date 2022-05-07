@@ -23,6 +23,7 @@ else
 			breaksw
 		endsw
 	end
+	unset p
 endif
 
 setenv HOSTNAME `/usr/bin/hostname`
