@@ -1,13 +1,15 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.13.9
+Version: 2.13.10
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
 URL: https://pagure.io/setup/
-Source0: http://releases.pagure.org/%{name}/%{name}-%{version}.tar.bz2
+Source0: https://releases.pagure.org/%{name}/%{name}-%{version}.tar.gz
 BuildArch: noarch
 #systemd-rpm-macros: required to use _tmpfilesdir macro
+# https://fedoraproject.org/wiki/Changes/Remove_make_from_BuildRoot
+BuildRequires: make
 BuildRequires: bash tcsh perl-interpreter systemd-rpm-macros
 #require system release for saner dependency order
 Requires: system-release
@@ -112,23 +114,51 @@ end
 %{_tmpfilesdir}/%{name}.conf
 
 %changelog
-* Tue Jan 12 2021 Debarshi Ray <rishi@fedoraproject.org> - 2.13.9-1
-- Don't set up VTE-specific PROMPT_COMMAND in bashrc
+* Sat May 07 2022 Martin Osvald <mosvald@redhat.com> - 2.13.10-1
+- Move /var/log/lastlog ownership to systemd (#1798685)
+- tcsh sets variable p to /usr/sbin from /etc/csh.login (#2019874)
+- 'history -a' doesn't belong in /etc/bashrc (#1871744)
+- localhost.localdomain in wrong order /etc/hosts (#1724539)
 
-* Mon Nov 30 2020 Pavel Zhukov <pzhukov@redhat.com> - 2.13.8-1
-- Do not import bashrc for posix shell
+* Sat Jan 22 2022 Fedora Release Engineering <releng@fedoraproject.org> - 2.13.9.1-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
+
+* Fri Jul 23 2021 Fedora Release Engineering <releng@fedoraproject.org> - 2.13.9.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_35_Mass_Rebuild
+
+* Fri Jul 16 2021 Pavel Zhukov <pzhukov@redhat.com> - 2.13.9.1-1
+- Bugfix release 2.13.9.1
+
+* Thu Jul 15 2021 Pavel Zhukov <pzhukov@redhat.com> - 2.13.9-1
+- New version v2.13.9
+
+* Thu Mar 11 2021 Pavel Zhukov <pzhukov@redhat.com> - 2.13.8-1
+- New version v2.13.8
+
+* Wed Jan 27 2021 Fedora Release Engineering <releng@fedoraproject.org> - 2.13.7-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
+
+* Wed Jul 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 2.13.7-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
 
 * Tue Jun 23 2020 Pavel Zhukov <pzhukov@redhat.com> - 2.13.7-1
-- Bump release to fix git tags 
+- Switch to hostnamectl
+- Add nrpe tcp port 5666 to /etc/services
+- Do not set umask from profile
 
-* Tue Jun 23 2020 Pavel Zhukov <pzhukov@redhat.com> - 2.13.6-1
-- Do not use deprecated hostname binary (#1745245)
+* Thu Jan 30 2020 Fedora Release Engineering <releng@fedoraproject.org> - 2.13.6-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
-* Tue Jun 23 2020 Pavel Zhukov <pzhukov@redhat.com> - 2.13.5-1
-- add nrpe tcp port 5666 to /etc/services (#1730396))
+* Thu Oct 03 2019 Martin Osvald <mosvald@redhat.com> - 2.13.6-1
+- csh.login: set PATH again (if empty) to prevent interpreter error (#1744106)
+- aliases: add pcp user (#1744091)
+- lang.csh: fix several variable substitution bugs and typos (#1746749)
+- don't set LANG as a per-shell variable
+- fix lang.csh script so it doesn't break tcsh -e scripts II (#1620004)
+- use full path for non-builtins in csh.cshrc, csh.login, lang.csh, lang.sh and profile (#1747493)
 
-* Tue Jun 23 2020 Pavel Zhukov <pzhukov@redhat.com> - 2.13.4-1
-- Do not set umask in setup (#1722387)
+* Fri Jul 26 2019 Fedora Release Engineering <releng@fedoraproject.org> - 2.13.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
 * Tue Apr 09 2019 Ondrej Vasik <ovasik@redhat.com> - 2.13.3-1
 - fix typo in lang.sh (#1697311)
