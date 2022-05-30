@@ -109,9 +109,9 @@ dovecot	97	97	/usr/libexec/dovecot		/sbin/nologin	dovecot
 ident	98	98	/		/sbin/nologin	ident
 # Note: 99 used to be the old uid for nobody, now moved to 65534, do not reuse
 users	-	100	-		-	setup
-input	-	104	-		-	setup
-render	-	105	-		-	setup
-sgx	-	106	-		-	setup
+input	-	104	-		-	systemd
+render	-	105	-		-	systemd
+sgx	-	106	-		-	systemd
 qemu	107	107	/		/sbin/nologin	libvirt
 ovirt	108	108	/		/sbin/nologin	libvirt
 rhevm	109	109	/home/rhevm		/sbin/nologin	vdsm-reg
