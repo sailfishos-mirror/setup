@@ -19,7 +19,8 @@ news	9	13	/var/spool/news		/sbin/nologin	inn
 uucp	10	14	/var/spool/uucp		/sbin/nologin	uucp
 operator	11	(0)	/root		/sbin/nologin	setup
 games	12	(100)	/usr/games		/sbin/nologin	setup
-gopher	13	30	/var/gopher		/sbin/nologin	-(not created by default)
+# Not created by default anymore.
+gopher	13	30	/var/gopher		/sbin/nologin	-
 ftp	14	50	/var/ftp		/sbin/nologin	setup
 man	-	15	-		-	setup
 oprofile	16	16	/var/lib/oprofile		/sbin/nologin	oprofile
@@ -150,10 +151,12 @@ myproxy	178	178	/var/lib/myproxy		/sbin/nologin	myproxy-server
 sanlock	179	179	/var/run/sanlock		/sbin/nologin	sanlock
 aeolus	180	180	/var/aeolus		/sbin/nologin	aeolus-configure
 wallaby	181	181	/var/lib/wallaby		/sbin/nologin	wallaby
-#katello	182	182	/usr/share/katello		/sbin/nologin	katello-common  #not used anymore, removed Jun2021, can be freed if necessary later
+# Not used anymore, removed Jun2021, can be freed if necessary later
+#katello	182	182	/usr/share/katello		/sbin/nologin	katello-common
 elasticsearch	183	183	/usr/share/java/elasticsearch		/sbin/nologin	elasticsearch
 mongodb	184	184	/var/lib/mongodb		/sbin/nologin	mongodb
-wildfly	185	185	/usr/share/wildfly		/sbin/nologin	wildfly	#was jboss-as
+# Previously provided by the 'jboss-as' package.
+wildfly	185	185	/usr/share/wildfly		/sbin/nologin	wildfly
 jbosson-agent	186	-	/		/sbin/nologin	jboss-on-agent
 jbosson	-	186	-		-	jboss-on-agent
 heat	187	187	/var/lib/heat		/sbin/nologin	heat
@@ -161,7 +164,8 @@ haproxy	188	188	/var/lib/haproxy		/sbin/nologin	haproxy
 hacluster	189	-	/		/sbin/nologin	pacemaker
 haclient	-	189	-		-	pacemaker
 systemd-journal	-	190	-		-	systemd
-#systemd-journal-gateway	191	191	/		/sbin/nologin	systemd  #dynamic on new systems, removed Dec2014, can be freed if necessary later
+# Dynamic on new systems, removed Dec2014, can be freed if necessary later
+#systemd-journal-gateway	191	191	/		/sbin/nologin	systemd
 systemd-network	192	192	/		/sbin/nologin	systemd
 systemd-resolve	193	193	/		/sbin/nologin	systemd
 #gnats	?	?	?		?	gnats, gnats-db
