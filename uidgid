@@ -43,8 +43,8 @@ amandabackup	33	(6)	/var/lib/amanda		/bin/false	amanda
 tape	-	33	-		-	setup
 netdump	34	34	/var/crash		/bin/bash	netdump-client, netdump-server
 utempter	-	35	-		-	libutempter
-vdsm	36	-	/		/bin/bash	kvm, vdsm
 kvm	-	36	-		-	kvm, vdsm, libvirt
+vdsm	36	(36)	/		/bin/bash	kvm, vdsm
 rpm	37	37	/var/lib/rpm		/bin/bash	rpm
 ntp	38	38	/etc/ntp		/sbin/nologin	ntp
 video	-	39	-		-	setup
@@ -157,12 +157,12 @@ elasticsearch	183	183	/usr/share/java/elasticsearch		/sbin/nologin	elasticsearch
 mongodb	184	184	/var/lib/mongodb		/sbin/nologin	mongodb
 # Previously provided by the 'jboss-as' package.
 wildfly	185	185	/usr/share/wildfly		/sbin/nologin	wildfly
-jbosson-agent	186	-	/		/sbin/nologin	jboss-on-agent
 jbosson	-	186	-		-	jboss-on-agent
+jbosson-agent	186	(186)	/		/sbin/nologin	jboss-on-agent
 heat	187	187	/var/lib/heat		/sbin/nologin	heat
 haproxy	188	188	/var/lib/haproxy		/sbin/nologin	haproxy
-hacluster	189	-	/		/sbin/nologin	pacemaker
 haclient	-	189	-		-	pacemaker
+hacluster	189	(189)	/		/sbin/nologin	pacemaker
 systemd-journal	-	190	-		-	systemd
 # Dynamic on new systems, removed Dec2014, can be freed if necessary later
 #systemd-journal-gateway	191	191	/		/sbin/nologin	systemd
