@@ -2,15 +2,9 @@
 #
 # csh configuration for all shell invocations.
 
-# By default, we want this to get set.
-# Even for non-interactive, non-login shells.
-# Current threshold for system reserved uid/gids is 200
-# You could check uidgid reservation validity in
-# /usr/share/doc/setup-*/uidgid file
-if ($uid > 199 && "`/usr/bin/id -gn`" == "`/usr/bin/id -un`") then
-    umask 002
-else
-    umask 022
+# Set default umask for non-login shell only if it is set to 0
+if ( `umask` == 0 ) then
+    umask 22
 endif
 
 if ($?prompt) then
