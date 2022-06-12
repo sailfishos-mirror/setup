@@ -4,7 +4,7 @@
 
 # Set default umask for non-login shell only if it is set to 0
 if ( `umask` == 0 ) then
-    umask 22
+    umask 022
 endif
 
 if ($?prompt) then
