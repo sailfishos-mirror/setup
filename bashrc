@@ -16,7 +16,7 @@ if [ -z "$BASHRCSOURCED" ]; then
   if [ "$PS1" ]; then
     if [ -z "$PROMPT_COMMAND" ]; then
       case $TERM in
-      xterm*|vte*)
+      xterm*)
         if [ -e /etc/sysconfig/bash-prompt-xterm ]; then
             PROMPT_COMMAND=/etc/sysconfig/bash-prompt-xterm
         else
