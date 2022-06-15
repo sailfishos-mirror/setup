@@ -64,15 +64,8 @@ if [ -z "$BASHRCSOURCED" ]; then
         esac
     }
 
-    # By default, we want umask to get set. This sets it for non-login shell.
-    # Current threshold for system reserved uid/gids is 200
-    # You could check uidgid reservation validity in
-    # /usr/share/doc/setup-*/uidgid file
-    if [ $UID -gt 199 ] && [ "`/usr/bin/id -gn`" = "`/usr/bin/id -un`" ]; then
-       umask 002
-    else
-       umask 022
-    fi
+    # Set default umask for non-login shell only if it is set to 0
+    [ `umask` -eq 0 ] && umask 022
 
     SHELL=/bin/bash
     # Only display echos from profile.d scripts if we are no login shell
