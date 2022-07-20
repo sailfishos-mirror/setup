@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.13.10
+Version: 2.14.1
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -68,10 +68,16 @@ rm -rf %{buildroot}/etc/contrib
 #handle it ( http://rpm.org/ticket/6 )
 %post -p <lua>
 for i, name in ipairs({"passwd", "shadow", "group", "gshadow"}) do
-     os.remove("/etc/"..name..".rpmnew")
+   os.remove("/etc/"..name..".rpmnew")
 end
 if posix.access("/usr/bin/newaliases", "x") then
-  os.execute("/usr/bin/newaliases >/dev/null")
+  local pid = posix.fork()
+  if pid == 0 then
+    posix.redirect2null(2)
+    posix.exec("/usr/bin/newaliases")
+  elseif pid > 0 then
+    posix.wait(pid)
+  end
 end
 
 %files
@@ -114,6 +120,15 @@ end
 %{_tmpfilesdir}/%{name}.conf
 
 %changelog
+* Wed Jul 20 2022 Martin Osvald <mosvald@redhat.com> - 2.14.1-1
+- bashrc sets hardcoded umask (#1902166)
+- bashrc: clean up unused references to VTE
+- uidgid: simplify table format and other format enhancements
+- uidgid: fix news and lock entries, move basic groups to systemd
+
+* Fri May 27 2022 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 2.13.10-2
+- Fix %%post scriptlet to not require the shell
+
 * Sat May 07 2022 Martin Osvald <mosvald@redhat.com> - 2.13.10-1
 - Move /var/log/lastlog ownership to systemd (#1798685)
 - tcsh sets variable p to /usr/sbin from /etc/csh.login (#2019874)
