@@ -110,6 +110,7 @@ dovecot	97	97	/usr/libexec/dovecot		/usr/sbin/nologin	dovecot
 ident	98	98	/		/usr/sbin/nologin	ident
 # Note: 99 used to be the old uid for nobody, now moved to 65534, do not reuse
 users	-	100	-		-	setup
+ssh_keys	-	101	-		-	openssh
 input	-	104	-		-	systemd
 render	-	105	-		-	systemd
 sgx	-	106	-		-	systemd
