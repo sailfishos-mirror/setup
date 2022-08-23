@@ -121,6 +121,7 @@ jetty	110	110	/usr/share/jetty		/usr/sbin/nologin	jetty
 saned	111	111	/		/usr/sbin/nologin	sane-backends
 vhostmd	112	112	/usr/share/vhostmd		/usr/sbin/nologin	vhostmd
 usbmuxd	113	113	/		/usr/sbin/nologin	usbmuxd
+polkitd	114	114	/		/usr/sbin/nologin	polkit
 bacula	133	133	/var/spool/bacula		/usr/sbin/nologin	bacula
 cimsrvr	134	134	/		/usr/sbin/nologin	tog-pegasus-libs
 mock	-	135	/		-	mock
