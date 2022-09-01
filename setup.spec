@@ -32,9 +32,9 @@ make check
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/etc/profile.d
-mkdir -p %{buildroot}/etc/motd.d
+mkdir -p %{buildroot}/etc
 cp -ar * %{buildroot}/etc
+mkdir -p %{buildroot}/etc/profile.d
 mv %{buildroot}/etc/lang* %{buildroot}/etc/profile.d/
 rm -f %{buildroot}/etc/uidgid
 rm -f %{buildroot}/etc/COPYING
@@ -43,12 +43,12 @@ touch %{buildroot}/etc/environment
 chmod 0644 %{buildroot}/etc/environment
 chmod 0400 %{buildroot}/etc/{shadow,gshadow}
 touch %{buildroot}/etc/fstab
-mkdir -p %{buildroot}/etc/profile.d
 echo "#Add any required envvar overrides to this file, it is sourced from /etc/profile" >%{buildroot}/etc/profile.d/sh.local
 echo "#Add any required envvar overrides to this file, is sourced from /etc/csh.login" >%{buildroot}/etc/profile.d/csh.local
+mkdir -p %{buildroot}/etc/motd.d
 mkdir -p %{buildroot}/run/motd.d
-touch %{buildroot}/run/motd
 mkdir -p %{buildroot}/usr/lib/motd.d
+touch %{buildroot}/run/motd
 touch %{buildroot}/usr/lib/motd
 #tmpfiles needed for files in /run
 mkdir -p %{buildroot}%{_tmpfilesdir}
