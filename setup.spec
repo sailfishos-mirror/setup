@@ -22,6 +22,7 @@ setup files, such as passwd, group, and profile.
 
 %prep
 %setup -q
+./generate-sysusers-fragments.sh
 ./shadowconvert.sh
 
 %build
@@ -34,6 +35,8 @@ make check
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/etc
 cp -ar * %{buildroot}/etc
+mkdir -p %(dirname %{buildroot}%{_sysusersdir})
+mv %{buildroot}/etc/sysusers.d %{buildroot}%{_sysusersdir}
 mkdir -p %{buildroot}/etc/profile.d
 mv %{buildroot}/etc/lang* %{buildroot}/etc/profile.d/
 rm -f %{buildroot}/etc/uidgid
@@ -60,6 +63,7 @@ chmod 0644 %{buildroot}%{_tmpfilesdir}/%{name}.conf
 rm -f %{buildroot}/etc/Makefile
 rm -f %{buildroot}/etc/serviceslint
 rm -f %{buildroot}/etc/uidgidlint
+rm -f %{buildroot}/etc/generate-sysusers-fragments.sh
 rm -f %{buildroot}/etc/shadowconvert.sh
 rm -f %{buildroot}/etc/setup.spec
 rm -rf %{buildroot}/etc/contrib
@@ -118,6 +122,7 @@ end
 %config(noreplace) %verify(not md5 size mtime) /etc/shells
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 %{_tmpfilesdir}/%{name}.conf
+%{_sysusersdir}/20-setup-groups.conf
 
 %changelog
 * Wed Jul 20 2022 Martin Osvald <mosvald@redhat.com> - 2.14.1-1
