@@ -9469,8 +9469,8 @@ ircu            6665/tcp                # IRCU
 ircu            6665/udp                # IRCU
 ircu-2          6666/tcp        ircu2   # IRCU
 ircu-2          6666/udp        ircu2   # IRCU
-ircu-3          6667/tcp        ircd,ircu3    # IRCU
-ircu-3          6667/udp        ircd,ircu3    # IRCU
+ircu-3          6667/tcp        ircd ircu3    # IRCU
+ircu-3          6667/udp        ircd ircu3    # IRCU
 ircu-4          6668/tcp        ircu4        # IRCU
 ircu-4          6668/udp        ircu4        # IRCU
 ircu-5          6669/tcp        ircu5        # IRCU
