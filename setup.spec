@@ -1,6 +1,6 @@
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.14.1
+Version: 2.14.2
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -125,6 +125,18 @@ end
 %{_sysusersdir}/20-setup-groups.conf
 
 %changelog
+* Thu Sep 08 2022 Martin Osvald <mosvald@redhat.com> - 2.14.2-1
+- sysusers.d: add script and configuration fragments for groups
+- passwd: align 'nologin' shell path with systemd defaults
+- uidgid: assign GID 101 for 'ssh_keys' group
+- uidgid: assign UID/GID 114 for 'polkitd'
+- passwd: update GECOS field for 'root' user
+- services: remove commas from aliases for ircu-3
+- setup.spec: throw away newaliases output again
+
+* Sat Jul 23 2022 Fedora Release Engineering <releng@fedoraproject.org> - 2.14.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild
+
 * Wed Jul 20 2022 Martin Osvald <mosvald@redhat.com> - 2.14.1-1
 - bashrc sets hardcoded umask (#1902166)
 - bashrc: clean up unused references to VTE
