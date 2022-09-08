@@ -77,7 +77,7 @@ end
 if posix.access("/usr/bin/newaliases", "x") then
   local pid = posix.fork()
   if pid == 0 then
-    posix.redirect2null(2)
+    posix.redirect2null(1)
     posix.exec("/usr/bin/newaliases")
   elseif pid > 0 then
     posix.wait(pid)
