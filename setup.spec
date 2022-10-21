@@ -123,6 +123,7 @@ end
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 %{_tmpfilesdir}/%{name}.conf
 %{_sysusersdir}/20-setup-groups.conf
+%{_sysusersdir}/20-setup-users.conf
 
 %changelog
 * Thu Sep 08 2022 Martin Osvald <mosvald@redhat.com> - 2.14.2-1
