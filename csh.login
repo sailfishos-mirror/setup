@@ -26,7 +26,24 @@ else
 	unset p
 endif
 
-setenv HOSTNAME `/usr/bin/hostname`
+if ( -ex /usr/bin/hostnamectl ) then
+        setenv HOSTNAME `/usr/bin/hostnamectl --transient`
+        if ( $? != 0 ) then
+                unsetenv HOSTNAME
+        endif
+endif
+if ( ! $?HOSTNAME ) then
+        if ( -ex /usr/bin/hostname ) then
+                setenv HOSTNAME `/usr/bin/hostname`
+                if ( $? != 0 ) then
+                        unsetenv HOSTNAME
+                endif
+        endif
+endif
+if ( ! $?HOSTNAME ) then
+        setenv HOSTNAME `/usr/bin/uname -n`
+endif
+
 set history=1000
 
 if ( -d /etc/profile.d ) then
