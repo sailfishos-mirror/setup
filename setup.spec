@@ -49,7 +49,6 @@ echo "#Add any required envvar overrides to this file, is sourced from /etc/csh.
 mkdir -p %{buildroot}/etc/motd.d
 mkdir -p %{buildroot}/run/motd.d
 mkdir -p %{buildroot}/usr/lib/motd.d
-touch %{buildroot}/run/motd
 touch %{buildroot}/usr/lib/motd
 #tmpfiles needed for files in /run
 mkdir -p %{buildroot}%{_tmpfilesdir}
@@ -100,7 +99,7 @@ end
 %verify(not md5 size mtime) %config(noreplace) /etc/hosts
 %verify(not md5 size mtime) %config(noreplace) /etc/motd
 %dir /etc/motd.d
-%verify(not md5 size mtime) %config(noreplace) /run/motd
+%ghost /run/motd
 %dir /run/motd.d
 %verify(not md5 size mtime) %config(noreplace) /usr/lib/motd
 %dir /usr/lib/motd.d
