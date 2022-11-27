@@ -13,8 +13,6 @@ BuildRequires: make
 BuildRequires: bash tcsh perl-interpreter systemd-rpm-macros
 #require system release for saner dependency order
 Requires: system-release
-Conflicts: filesystem < 3
-Conflicts: initscripts < 4.26, bash <= 2.0.4-21
 
 %description
 The setup package contains a set of important system configuration and
