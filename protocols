@@ -160,3 +160,6 @@ rohc	142	ROHC		# Robust Header Compression
 #   253     Use for experimentation and testing           [RFC3692]
 #   254     Use for experimentation and testing           [RFC3692]
 #   255                 Reserved                             [IANA]
+# The following entries have not been assigned by IANA but are used
+# internally by the Linux kernel.
+mptcp	262	MPTCP		# Multipath TCP connection
