@@ -65,6 +65,13 @@ rm -f %{buildroot}/etc/shadowconvert.sh
 rm -f %{buildroot}/etc/setup.spec
 rm -rf %{buildroot}/etc/contrib
 
+# make setup a protected package
+install -p -d -m 755 %{buildroot}/etc/dnf/protected.d/
+touch %{name}.conf
+echo setup > %{name}.conf
+install -p -c -m 0644 %{name}.conf %{buildroot}/etc/dnf/protected.d/
+rm -f %{name}.conf
+
 #throw away useless and dangerous update stuff until rpm will be able to
 #handle it ( http://rpm.org/ticket/6 )
 %post -p <lua>
@@ -121,6 +128,7 @@ end
 %{_tmpfilesdir}/%{name}.conf
 %{_sysusersdir}/20-setup-groups.conf
 %{_sysusersdir}/20-setup-users.conf
+/etc/dnf/protected.d/%{name}.conf
 
 %changelog
 * Sun Nov 27 2022 Martin Osvald <mosvald@redhat.com> - 2.14.3-1
