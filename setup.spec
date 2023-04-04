@@ -106,7 +106,7 @@ end
 %verify(not md5 size mtime) %config(noreplace) /etc/hosts
 %verify(not md5 size mtime) %config(noreplace) /etc/motd
 %dir /etc/motd.d
-%ghost /run/motd
+%ghost %verify(not md5 size mtime) /run/motd
 %dir /run/motd.d
 %verify(not md5 size mtime) %config(noreplace) /usr/lib/motd
 %dir /usr/lib/motd.d
