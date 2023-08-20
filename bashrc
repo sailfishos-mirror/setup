@@ -15,6 +15,7 @@ if [ -z "$BASHRCSOURCED" ]; then
   # are we an interactive shell?
   if [ "$PS1" ]; then
     if [ -z "$PROMPT_COMMAND" ]; then
+      declare -a PROMPT_COMMAND
       case $TERM in
       xterm*)
         if [ -e /etc/sysconfig/bash-prompt-xterm ]; then
